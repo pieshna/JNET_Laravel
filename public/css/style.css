@@ -1,0 +1,39 @@
+.texto{
+    font-size: 30px;
+}
+.recibo{
+    margin-top: 3rem;
+    margin-right: 0.5rem;
+    text-align: end;
+    color: red;
+    text-decoration: wavy;
+    font-size: 45px;
+}
+.contenedor{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+.centrar{
+    text-align: center;
+}
+th,td,tr{
+    border: 3px solid;
+    font-size: 25px;
+}
+thead{
+    background-color: gray;
+}
+.izquierda{
+    text-align: left;
+    margin-left: 1rem;
+}
+.color{
+    background-color: rgb(200, 200, 204);
+}
+.fecha{
+    text-align: right;
+}
+.negrita{
+    font-weight: bold;
+    
+}
