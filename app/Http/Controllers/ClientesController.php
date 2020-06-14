@@ -16,7 +16,7 @@ class ClientesController extends Controller
     {
         //
         $datos['clientes']=\DB::select('SELECT clientes.id, nombre,apellido,direccion,telefono,clientes.fecha_fac,plan.megas,
-        direccion_ip FROM clientes INNER JOIN plan on plan.id=clientes.plan');
+        direccion_ip FROM clientes INNER JOIN plan on plan.id=clientes.plan order by clientes.id');
         return view('clientes.index',$datos);
     }
 
@@ -95,6 +95,7 @@ class ClientesController extends Controller
     public function destroy($id)
     {
         //
+        \DB::table('pagos')->where('cliente', '=', $id)->delete();
         clientes::destroy($id);
         return redirect ('clientes')->with('Mensaje','Cliente Eliminado');
     }
