@@ -47,9 +47,13 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Borrar cliente?');"
-                                    class="btn btn-danger">Borrar</button>
+                                    class="btn btn-danger separar-boton">Borrar</button>
                             </form>
 
+                        <a class="btn btn-info separar-boton" target="_blank"
+                            href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que se encuentra proximo a su fecha de pago ({{$cliente->fecha_fac}} del presente) con un saldo de: Q{{$cliente->precio}} correspondiente al consumo del mes&source=&data=">
+                            Recordatorio
+                        </a>
                         </div>
                     </td>
                 </tr>
