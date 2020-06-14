@@ -95,7 +95,7 @@ class ClientesController extends Controller
     public function destroy($id)
     {
         //
-        \DB::table('pagos')->where('cliente', '=', $id)->delete();
+	      \DB::table('pagos')->where('cliente', '=', $id)->delete();
         clientes::destroy($id);
         return redirect ('clientes')->with('Mensaje','Cliente Eliminado');
     }

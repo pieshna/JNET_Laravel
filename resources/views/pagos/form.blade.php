@@ -5,7 +5,7 @@
         <select name="cliente" class="custom-select" id="cliente">
             <option value="" disabled selected>Seleccione cliente</option>
             @foreach($buscarcliente as $cliente)
-            <option value="{{$cliente->id}}"> {{$cliente->nombre}}</option>
+            <option value="{{$cliente->id}}"> {{$cliente->nombre}} {{$cliente->apellido}} </option>
             @endforeach
         </select>
     </div>
