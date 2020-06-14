@@ -141,6 +141,7 @@ class PagosController extends Controller
         LIMIT 1');
         return view('pagos.redireccion',$data);
     }
+
 public function verpagos(){
         $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes from pagos
         inner join clientes on clientes.id=pagos.cliente

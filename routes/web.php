@@ -31,6 +31,7 @@ Route::resource('clientes', 'ClientesController')->middleware('auth');
 Route::resource('usuarios', 'UsuariosController')->middleware('auth');
 Route::resource('planes', 'PlanesController')->middleware('auth');
 Route::resource('pagos', 'PagosController')->middleware('auth');
+
 Route::get('/verpago', 'PagosController@verpagos')->middleware('auth');
 Route::get('/redireccionar', 'PagosController@redireccionar')->middleware('auth');
 Route::get('/pdf', 'PagosController@pdf')->middleware('auth');

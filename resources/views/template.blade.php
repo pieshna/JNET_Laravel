@@ -30,32 +30,30 @@
 </head>
 @stop
 
-<body>
-    @section('nav')
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    <img src="/imagenes/soloLogo.png" alt="" width="30" height="30">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+@section('nav')
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/home') }}">
+                <img src="/imagenes/soloLogo.png" alt="" width="30" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
 
-                    </ul>
+                </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
 
-                        <!--<li class="nav-item">
+                    <!--<li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
@@ -63,64 +61,63 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif  -->
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Usuario: {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                    @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Usuario: {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Cerrar Sesion.
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropMenuClientes" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Clientes
+                                Cerrar Sesion.
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="dropMenuClientes">
-                                <a class="dropdown-item" href="{{url('/clientes')}}">Ver</a>
-                                <a class="dropdown-item" href="{{url('/clientes/create')}}">Ingresar</a>
-                            </div>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/pagos/create')}}">Pagos</a>
-                        </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropMenuHerramientas" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Herramientas
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropMenuHerramientas">
-                                <a class="dropdown-item" href="{{ url('/usuarios') }}">Usuarios</a>
-                                <a class="dropdown-item" href="{{ url('/planes') }}">Planes de Internet</a>
-                                <a class="dropdown-item" href="{{ url('/pdf') }}">Generar Recibo</a>
-				<a class="dropdown-item" href="{{ url('/redireccionar') }}">Enviar recibo</a>
-				<a class="dropdown-item" href="{{ url('/verpago')}}" > Ver todos los pagos</a>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropMenuClientes" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Clientes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropMenuClientes">
+                            <a class="dropdown-item" href="{{url('/clientes')}}">Ver</a>
+                            <a class="dropdown-item" href="{{url('/clientes/create')}}">Ingresar</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/pagos/create')}}">Pagos</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropMenuHerramientas" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Herramientas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropMenuHerramientas">
+                            <a class="dropdown-item" href="{{ url('/usuarios') }}">Usuarios</a>
+                            <a class="dropdown-item" href="{{ url('/planes') }}">Planes de Internet</a>
+                            <a class="dropdown-item" href="{{ url('/pdf') }}">Generar Recibo</a>
+                            <a class="dropdown-item" href="{{ url('/redireccionar') }}">Enviar recibo</a>
+                            <a class="dropdown-item" href="{{ url('/verpagos') }}"> Ver todos los pagos</a>
+                        </div>
+                    </li>
+                    @endguest
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-    </div>
-    <br>
-    @stop
-    @section('footer')
+</div>
+<br>
+@stop
+@section('footer')
 </body>
 
 </html>
