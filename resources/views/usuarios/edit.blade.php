@@ -6,7 +6,7 @@
     @yield('nav')
     <div class="container-fluid">
         <div class="jumbotron jumbotron-fluid bg-primary text-white">
-            <h1 style="font-size: 60px;" class="text-center">Editar Cliente</h1>
+            <h1 style="font-size: 60px;" class="text-center">Editar Usuario</h1>
             <hr>
         </div>
         <form action="{{url('/usuarios/'.$buscarusuario->id)}}" method="post">

@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('/clientes/menu', function () {
     return view('clientes.menu');
 })->middleware('auth');
