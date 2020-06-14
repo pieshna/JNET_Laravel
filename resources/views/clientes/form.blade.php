@@ -31,7 +31,7 @@
 </div>
 <div class="form-row">
     <div class="form-group col-md-6">
-        <label>Localidad</label>
+        <label>Plan</label>
         <select name="plan" class="custom-select" id="plan">
             @foreach($buscarplan as $mega)
             @if(isset($buscarcliente))

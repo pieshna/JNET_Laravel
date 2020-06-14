@@ -64,7 +64,7 @@ class PagosController extends Controller
         $obtenerMesf[0],
         $obtenerPlanf[0],
         $datostotal[0] ]);
-        $this->pdf();
+//        $this->pdf();
         return redirect ('/home');
     }
 
@@ -121,7 +121,7 @@ class PagosController extends Controller
     }
     public function pdf()
     {
-        $data['data']=\DB::select('select clientes.nombre, mes.mes,plan.megas,pagos.total from pagos
+        $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes,plan.megas,pagos.total from pagos
         inner join clientes on clientes.id=pagos.cliente
         inner join plan on plan.id=pagos.plan
         inner join mes on mes.id=pagos.mes ORDER by pagos.id DESC
@@ -130,7 +130,7 @@ class PagosController extends Controller
         $pdf=\PDF::loadView('pagos/pdf',$data,$fecha);
         $pdf->setPaper([0,0,1000,1500]);
         //return view('pagos.pdf',$data);
-        
+//        $this->redireccionar();
         return $pdf->download(date('dhmiys').'.pdf');
     }
     public function redireccionar(){
@@ -140,5 +140,11 @@ class PagosController extends Controller
         inner join mes on mes.id=pagos.mes ORDER by pagos.id DESC
         LIMIT 1');
         return view('pagos.redireccion',$data);
+    }
+public function verpagos(){
+        $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes from pagos
+        inner join clientes on clientes.id=pagos.cliente
+        inner join mes on mes.id=pagos.mes;');
+        return view('pagos.vermes',$data);
     }
 }

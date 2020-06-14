@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('/clientes/menu', function () {
     return view('clientes.menu');
 })->middleware('auth');
@@ -33,7 +31,7 @@ Route::resource('clientes', 'ClientesController')->middleware('auth');
 Route::resource('usuarios', 'UsuariosController')->middleware('auth');
 Route::resource('planes', 'PlanesController')->middleware('auth');
 Route::resource('pagos', 'PagosController')->middleware('auth');
-
+Route::get('/verpago', 'PagosController@verpagos')->middleware('auth');
 Route::get('/redireccionar', 'PagosController@redireccionar')->middleware('auth');
 Route::get('/pdf', 'PagosController@pdf')->middleware('auth');
 Route::get('/pagos/fill/{pago}', 'PagosController@llenado')->middleware('auth');

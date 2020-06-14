@@ -106,7 +106,9 @@
                             <div class="dropdown-menu" aria-labelledby="dropMenuHerramientas">
                                 <a class="dropdown-item" href="{{ url('/usuarios') }}">Usuarios</a>
                                 <a class="dropdown-item" href="{{ url('/planes') }}">Planes de Internet</a>
-                                <a class="dropdown-item" href="{{ url('/pagos') }}">Ver meses pagados</a>
+                                <a class="dropdown-item" href="{{ url('/pdf') }}">Generar Recibo</a>
+				<a class="dropdown-item" href="{{ url('/redireccionar') }}">Enviar recibo</a>
+				<a class="dropdown-item" href="{{ url('/verpago')}}" > Ver todos los pagos</a>
                             </div>
                         </li>
                         @endguest

@@ -33,7 +33,7 @@
     @foreach($data as $datos)
     <div class="row contenedor">
         <div class="col-md-6">
-            <p class='texto negrita'>CLIENTE: {{$datos->nombre}}</p>
+            <p class='texto negrita'>CLIENTE: {{$datos->nombre}} {{$datos->apellido}}</p>
         </div>
         <div class="col-md-6">
             
