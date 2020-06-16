@@ -73,7 +73,6 @@
         <br>
     </div>
     @endforeach
-    <!--<a class="btn btn-primary" href="{{route('download')}}">Guardar Recibo</a>-->
 </body>
 
 </html>
