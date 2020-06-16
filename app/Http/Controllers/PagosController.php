@@ -127,7 +127,7 @@ class PagosController extends Controller
         inner join mes on mes.id=pagos.mes ORDER by pagos.id DESC
         LIMIT 1');
         $fecha['fecha'] =[date('d/m/y'),date('dhmiys')];
-        $pdf=\PDF::loadView('pagos/pdf',$data,$fecha);
+        $pdf=\PDF::loadView('pagos.pdf',$data,$fecha);
         $pdf->setPaper([0,0,1000,1500]);
         //return view('pagos.pdf',$data);
 //        $this->redireccionar();
