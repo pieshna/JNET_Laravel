@@ -35,7 +35,7 @@
                     <td>{{$cliente->nombre}}</td>
                     <td>{{$cliente->apellido}}</td>
                     <td>{{$cliente->direccion}}</td>
-                    <td><a href="wa.me/502{{$cliente->telefono}}" target="_blank">{{$cliente->telefono}}</a></td>
+                    <td><a href="wa.me/502{{$cliente->telefono}}" target="_blank" class="txtnegro">{{$cliente->telefono}}</a></td>
                     <td>{{$cliente->fecha_fac}}</td>
                     <td>{{$cliente->megas}} Megas</td>
                     <td>{{$cliente->direccion_ip}}</td>
