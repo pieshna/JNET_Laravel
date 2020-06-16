@@ -4,7 +4,7 @@
 <body>
     @yield('nav')
     <div class="container-fluid table-responsive">
-        <h1 class='text-center'>CLIENTES: </h1>
+        <h1 class='text-center'>CLIENTES </h1>
         <hr>
         @if(Session::has('Mensaje'))
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -35,7 +35,7 @@
                     <td>{{$cliente->nombre}}</td>
                     <td>{{$cliente->apellido}}</td>
                     <td>{{$cliente->direccion}}</td>
-                    <td>{{$cliente->telefono}}</td>
+                    <td><a href="wa.me/502{{$cliente->telefono}}" target="_blank">{{$cliente->telefono}}</a></td>
                     <td>{{$cliente->fecha_fac}}</td>
                     <td>{{$cliente->megas}} Megas</td>
                     <td>{{$cliente->direccion_ip}}</td>
