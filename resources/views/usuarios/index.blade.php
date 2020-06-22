@@ -17,7 +17,7 @@
         <table class="table table-hover">
             <thead>
                 <tr class='bg-info'>
-                    <th scope="col">ID</th>
+                    <th scope="col">Foto</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Contraseña</th>
@@ -27,7 +27,7 @@
             <tbody>
                 @foreach ($usuarios as $usuario)
                 <tr>
-                    <td>{{$usuario->id}}</td>
+                    <td><img src="{{asset('storage').'/'.$usuario->picture}}" alt="No hay" class="fotoIndex"></td>
                     <td>{{$usuario->name}}</td>
                     <td>{{$usuario->email}}</td>
                     <td>{{$usuario->password}}</td>
@@ -39,7 +39,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Borrar usuario?');"
-                                    class="btn btn-danger">Borrar</button>
+                                    class="btn btn-danger separar-boton">Borrar</button>
                             </form>
 
                         </div>

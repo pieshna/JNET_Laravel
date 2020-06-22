@@ -20,7 +20,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Megas</th>
                     <th scope="col">Precio</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col" class="max-accion-plan">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                     <td>{{$mega->id}}</td>
                     <td>{{$mega->megas}} Megas</td>
                     <td>Q.{{$mega->precio}}</td>
-                    <td>
+                    <td class="max-accion-plan">
                         <div class="row">
                             <a href="{{url('/planes/'.$mega->id.'/edit')}}" class="btn btn-warning">Editar</a>
 
@@ -37,7 +37,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Borrar Plan?');"
-                                    class="btn btn-danger">Borrar</button>
+                                    class="btn btn-danger separar-boton">Borrar</button>
                             </form>
 
                         </div>

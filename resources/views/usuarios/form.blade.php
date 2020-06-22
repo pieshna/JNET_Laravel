@@ -10,6 +10,10 @@
         <input type="text" onkeyup="javascript:upper(this)" class="form-control" name="email"
             placeholder="Ingrese el Correo" value="{{isset($buscarusuario->email)?$buscarusuario->email:''}}" required>
     </div>
+    <div class="form-group col-md-6">
+        <label>Foto</label>
+        <input type="file" class="form-control" name="picture" required>
+    </div>
 </div>
 @stop
 @section('cambiarPass')

@@ -9,7 +9,7 @@
             <h1 style="font-size: 60px;" class="text-center">Editar Usuario</h1>
             <hr>
         </div>
-        <form action="{{url('/usuarios/'.$buscarusuario->id)}}" method="post">
+        <form action="{{url('/usuarios/'.$buscarusuario->id)}}" method="post" enctype="multipart/form-data">
         <br>
             @csrf
             @method('PATCH')

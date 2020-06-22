@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UsuariosController extends Controller
 {
@@ -15,7 +16,7 @@ class UsuariosController extends Controller
     public function index()
     {
         //
-        $datos['usuarios']=\DB::select('select id,name,email,password from users');
+        $datos['usuarios']=\DB::select('select id,picture,name,email,password from users');
         return view('usuarios.index',$datos);
     }
 
@@ -76,6 +77,14 @@ class UsuariosController extends Controller
     {
         //
         $datosUsuario=request()->except(['_token','_method']);
+        if($request->hasFile('picture')){
+            //Buscamos la foto anterior
+            $fotos=\DB::table('users')->find($id);
+            //Eliminamos la foto anterior
+            Storage::delete('public/'.$fotos->picture);
+            //Ingresamos la nueva foto
+            $datosUsuario['picture']=$request->file('picture')->store('profile','public');
+        }
         \DB::table('users')->where('id',$id)->update($datosUsuario);
         return redirect ('usuarios')->with('Mensaje','Usuario editado exitosamente');
     }

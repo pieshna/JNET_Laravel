@@ -26,7 +26,7 @@ Route::resource('pagos', 'PagosController')->middleware('auth');
 Route::get('/verificar',function(){
     return view('auth.verify');
 });
-Route::get('/verpago', 'PagosController@verpagos')->middleware('auth');
+Route::get('/verpagos', 'PagosController@verpagos')->middleware('auth');
 Route::get('/redireccionar', 'PagosController@redireccionar')->middleware('auth');
 Route::get('/pdf', 'PagosController@pdf')->middleware('auth');
 Route::get('/pagos/fill/{pago}', 'PagosController@llenado')->middleware('auth');
