@@ -26,8 +26,12 @@
                 <tr>
                     <td>{{$datos->nombre}}</td>
                     <td>{{$datos->apellido}}</td>
-                    <td>{{$datos->mes}}</td>
+                    @foreach($data as $buscarmes)
+                    @if(($datos->nombre===$buscarmes->nombre)&&($datos->apellido===$buscarmes->apellido))
+                    <td>{{$buscarmes->mes}}</td>
+                    @endif
                     
+                @endforeach
                 </tr>
                 @endforeach
             </tbody>
