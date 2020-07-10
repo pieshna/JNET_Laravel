@@ -62,6 +62,10 @@
                             href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que debido a la falta de pago el servicio ha sido suspendido, para poder seguir disfrutando de nuestro servicio le comentamos que desde ya puede pasar a cancelar&source=&data=">
                             Corte
                         </a>
+                        <a class="btn btn-info separar-boton" target="_blank"
+                            href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le notificamos que el dia de hoy se estara haciendo mantenimiento de ultima hora de 2:30 a 5:00 de la tarde, motivo por el cual el servicio podria presentar irregularidades en el transcurso del mantenimiento... Desde ya agradecemos su comprension, que tenga lindo dia!&source=&data=">
+                            Mantenimiento
+                        </a>
                         </div>
                     </td>
                 </tr>
