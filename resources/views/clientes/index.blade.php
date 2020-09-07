@@ -55,7 +55,7 @@
                             Recordatorio
                         </a>
                         <a class="btn btn-info separar-boton" target="_blank"
-                            href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que su fecha de pago ya pasó y cuenta con un saldo pendiente de Q{{$cliente->precio}} correspondiente al consumo del último mes, le recordamos que desde ya puede pasar a cancelar el servicio... Si usted ya cancelo por favor OMITIR este mensaje.&source=&data=">
+                            href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que su fecha de pago ya pasó y cuenta con un saldo pendiente de Q{{$cliente->precio}} correspondiente al consumo del último mes, le recordamos que desde ya puede pasar a cancelar su pago, de lo contrario se le estaria aplicando una mora de Q25... Si usted ya cancelo por favor OMITIR este mensaje.&source=&data=">
                             Recordatorio atrasado
                         </a>
                         <a class="btn btn-info separar-boton" target="_blank"
