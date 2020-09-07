@@ -38,7 +38,7 @@
                     <td><a href="http://wa.me/502{{$cliente->telefono}}" target="_blank" class="txtnegro">{{$cliente->telefono}}</a></td>
                     <td>{{$cliente->fecha_fac}}</td>
                     <td>{{$cliente->megas}} Megas</td>
-                    <td>{{$cliente->direccion_ip}}</td>
+                    <td><a href="http://{{$cliente->direccion_ip}}:8080" target="_blank" class="txtnegro">{{$cliente->direccion_ip}}</a></td>
                     <td>
                         <div class="row">
                             <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-warning">Editar</a>
