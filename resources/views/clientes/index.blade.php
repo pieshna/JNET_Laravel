@@ -14,17 +14,17 @@
             </button>
         </div>
         @endif
-        <table class="table table-hover">
+        <table class="table table-hover" id='grid'>
             <thead>
                 <tr class='bg-info'>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Direccion</th>
+                    <th scope="col" data-type="number">ID</th>
+                    <th scope="col" data-type="string">Nombre</th>
+                    <th scope="col" data-type="string">Apellido</th>
+                    <th scope="col" data-type="string">Direccion</th>
                     <th scope="col">Telefono</th>
-                    <th scope="col">Fecha de Facturacion</th>
-                    <th scope="col">Plan</th>
-                    <th scope="col">Direccion IP</th>
+                    <th scope="col" data-type="number">Fecha de Facturacion</th>
+                    <th scope="col" data-type="string">Plan</th>
+                    <th scope="col" data-type="string">Direccion IP</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -76,4 +76,44 @@
         <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/clientes/create')}}">Nuevo</a>
         <br><br>
     </div>
+    <script>
+
+    grid.onclick = function(e) {
+      if (e.target.tagName != 'TH') return;
+
+      let th = e.target;
+      // if TH, then sort
+      // cellIndex is the number of th:
+      //   0 for the first column
+      //   1 for the second column, etc
+      sortGrid(th.cellIndex, th.dataset.type);
+    };
+
+    function sortGrid(colNum, type) {
+      let tbody = grid.querySelector('tbody');
+
+      let rowsArray = Array.from(tbody.rows);
+
+      // compare(a, b) compares two rows, need for sorting
+      let compare;
+
+      switch (type) {
+        case 'number':
+          compare = function(rowA, rowB) {
+            return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+          };
+          break;
+        case 'string':
+          compare = function(rowA, rowB) {
+            return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+          };
+          break;
+      }
+
+      // sort
+      rowsArray.sort(compare);
+
+      tbody.append(...rowsArray);
+    }
+  </script>
     @yield('footer')

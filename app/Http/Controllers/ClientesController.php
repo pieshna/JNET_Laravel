@@ -15,8 +15,9 @@ class ClientesController extends Controller
     public function index()
     {
         //
-        $datos['clientes']=\DB::select('SELECT clientes.id, nombre,apellido,direccion,telefono,clientes.fecha_fac,plan.megas,plan.precio,
-        direccion_ip FROM clientes INNER JOIN plan on plan.id=clientes.plan order by clientes.id');
+        $datos['clientes']=\DB::table('clientes')->join('plan', 'plan.id','=','clientes.plan')
+        ->select('clientes.id', 'nombre','apellido','direccion','telefono','clientes.fecha_fac','plan.megas','plan.precio',
+        'direccion_ip')->orderBy('clientes.id')->get();
         return view('clientes.index',$datos);
     }
 
