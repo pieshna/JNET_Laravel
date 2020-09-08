@@ -26,3 +26,8 @@
 
     </div>
     @yield('footer')
+    <script>
+    function upper(aux) {
+        aux.value = aux.value.toUpperCase();
+    }
+    </script>
