@@ -52,7 +52,7 @@
     }
 
     $("#ok").click(function() {
-        //v1 = window.open("{{url('pdf')}}", '_blank');
+        v1 = window.open("{{url('pdf')}}", '_blank');
         //v2 = window.open("{{url('redireccionar')}}", '_blank');
 
 

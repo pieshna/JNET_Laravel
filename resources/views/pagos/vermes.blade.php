@@ -14,8 +14,8 @@
         </div>
         @endif
         <table class="table table-hover">
-            <thead>
-                <tr class='bg-info'>
+            <thead class='bg-info'>
+                <tr >
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Mes</th>
@@ -26,9 +26,9 @@
                 <tr>
                     <td>{{$datos->nombre}}</td>
                     <td>{{$datos->apellido}}</td>
-                    @foreach($data as $buscarmes)
-                    @if(($datos->nombre===$buscarmes->nombre)&&($datos->apellido===$buscarmes->apellido))
-                    <td>{{$buscarmes->mes}}</td>
+                    @foreach($pagocliente as $buscarmes)
+                    @if($datos->id===$buscarmes->cliente)
+                    <td><a href="verrecibo/{{$buscarmes->link}}" class="txtnegro">{{$buscarmes->mes}}</a></td>
                     @endif
                     
                 @endforeach

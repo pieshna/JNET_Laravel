@@ -129,10 +129,21 @@ class PagosController extends Controller
         $fecha['fecha'] =[date('d/m/y'),date('dhmiys')];
         $pdf=\PDF::loadView('pagos.pdf',$data,$fecha);
         $pdf->setPaper([0,0,1000,1500]);
+        $nombre=date("dhmiys");
+        
+        \Storage::put('public/pdf/'.$nombre.'.pdf', $pdf->output());
+        \DB::update('update mes set link = ?
+        order by id desc limit 1', ['public/pdf/'.$nombre.'.pdf']);
         //return view('pagos.pdf',$data);
-//        $this->redireccionar();
-        return $pdf->download(date('dhmiys').'.pdf');
+        //$this->guardarpdf($pdf,$nombre);
+        return $pdf->download($nombre.'.pdf');
     }
+
+    public function guardarpdf($pdfi,$nombre){
+        return $pdfi->stream($nombre.'.pdf');
+
+    }
+
     public function redireccionar(){
         $data['data']=\DB::select('select clientes.telefono from pagos
         inner join clientes on clientes.id=pagos.cliente
@@ -143,9 +154,8 @@ class PagosController extends Controller
     }
 
 public function verpagos(){
-        $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes from pagos
-        inner join clientes on clientes.id=pagos.cliente
-        inner join mes on mes.id=pagos.mes;');
-        return view('pagos.vermes',$data);
+        $data['data']=\DB::select('select * from clientes');
+        $pagocliente['pagocliente']=\DB::select('select * from mes');
+        return view('pagos.vermes',$data,$pagocliente);
     }
 }

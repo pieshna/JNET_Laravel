@@ -19,6 +19,9 @@ Route::get('/clientes/menu', function () {
 })->middleware('auth');
 
 Auth::routes();
+Route::get('/verrecibo/{file}', function ($file) {
+    return Storage::response("$file");
+})->middleware('auth');
 Route::resource('clientes', 'ClientesController')->middleware('auth');
 Route::resource('usuarios', 'UsuariosController')->middleware('auth');
 Route::resource('planes', 'PlanesController')->middleware('auth');
