@@ -20,8 +20,8 @@ Route::get('/clientes/menu', function () {
 
 Auth::routes();
 Route::get('/verrecibo/{file}', function ($file) {
-    return Storage::response("$file");
-})->middleware('auth');
+    return Storage::response("public/pdf/$file");
+});
 Route::resource('clientes', 'ClientesController')->middleware('auth');
 Route::resource('usuarios', 'UsuariosController')->middleware('auth');
 Route::resource('planes', 'PlanesController')->middleware('auth');

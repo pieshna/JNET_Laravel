@@ -133,7 +133,7 @@ class PagosController extends Controller
         
         \Storage::put('public/pdf/'.$nombre.'.pdf', $pdf->output());
         \DB::update('update mes set link = ?
-        order by id desc limit 1', ['public/pdf/'.$nombre.'.pdf']);
+        order by id desc limit 1', [$nombre.'.pdf']);
         //return view('pagos.pdf',$data);
         //$this->guardarpdf($pdf,$nombre);
         return $pdf->download($nombre.'.pdf');
