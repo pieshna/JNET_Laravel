@@ -58,3 +58,47 @@
 
     });
     </script>
+    <script>
+        var flag=true;
+    $('#txtmora').click(function() {
+    if ( !flag) {
+        $('#mora').attr('checked', true);
+    } else {
+        $('#mora').attr('checked', false);
+    }
+});
+$('#mora').change(function() {
+    var nuevototal=$('#total').val()-5+5;
+    if(flag){
+        flag=false;
+    nuevototal=nuevototal+25;
+    $('#total').val(nuevototal);
+    }else{
+        flag=true;
+     nuevototal=nuevototal-25;
+    $('#total').val(nuevototal);
+    }
+  });
+    </script>
+    <script>
+        var bandera=true;
+    $('#txtinstalacion').click(function() {
+    if ( !bandera) {
+        $('#instalacion').attr('checked', true);
+    } else {
+        $('#instalacion').attr('checked', false);
+    }
+});
+$('#instalacion').change(function() {
+    var nuevototal=$('#total').val()-5+5;
+    if(bandera){
+        bandera=false;
+    nuevototal=nuevototal+50;
+    $('#total').val(nuevototal);
+    }else{
+        bandera=true;
+     nuevototal=nuevototal-50;
+    $('#total').val(nuevototal);
+    }
+  });
+    </script>

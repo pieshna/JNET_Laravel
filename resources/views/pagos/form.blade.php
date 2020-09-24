@@ -28,7 +28,16 @@
         </select>
     </div>
 </div>
-<br>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <input type="checkbox" name="mora" id="mora" value="25">
+        <label for="mora" id="txtmora">Mora</label>
+    </div>
+    <div class="form-group col-md-6">
+        <input type="checkbox" name="instalacion" id="instalacion" value="50">
+        <label for="instalacion" id="txtinstalacion">Instalacion</label>
+    </div>
+</div>
 <br>
 <div class="form-row" id='cargar'>
     <div class="form-group col-md-6">
@@ -41,7 +50,7 @@
     </div>
     <div class="form-group col-md-3">
         <label>Total:</label>
-        <input type="text" class="form-control" name="total" disabled>
+        <input type="text" class="form-control" name="total" id="total" disabled>
     </div>
 </div>
 

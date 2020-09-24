@@ -47,10 +47,10 @@ class PagosController extends Controller
         $datosCliente=$request->get('cliente');
         $datosplan=$request->get('plan');
         \DB::insert('insert into mes (mes, cliente,year) values (?, ?,?)', 
-        [$datosmes,$datosCliente,2020 ]);
+        [$datosmes,$datosCliente,date("yy") ]);
         $obtenerMes=\DB::select('select mes.id,plan.id as pid,plan.precio from mes
         inner join clientes on clientes.id=mes.cliente
-        inner join plan on clientes.plan=plan.id and mes = ? and cliente=? and year=?', [$datosmes,$datosCliente,2020 ]);
+        inner join plan on clientes.plan=plan.id and mes = ? and cliente=? and year=?', [$datosmes,$datosCliente,date("yy") ]);
         //$obtenerPlan=\DB::select('select * from plan where megas = ?', [$datosplan]);
         
         foreach($obtenerMes as $m){
@@ -121,7 +121,7 @@ class PagosController extends Controller
     }
     public function pdf()
     {
-        $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes,plan.megas,pagos.total from pagos
+        $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes,plan.megas,plan.precio,pagos.total from pagos
         inner join clientes on clientes.id=pagos.cliente
         inner join plan on plan.id=pagos.plan
         inner join mes on mes.id=pagos.mes ORDER by pagos.id DESC
@@ -136,7 +136,7 @@ class PagosController extends Controller
         order by id desc limit 1', [$nombre.'.pdf']);
         //return view('pagos.pdf',$data);
         //$this->guardarpdf($pdf,$nombre);
-        return $pdf->download($nombre.'.pdf');
+        return $pdf->stream($nombre.'.pdf');
     }
 
     public function guardarpdf($pdfi,$nombre){

@@ -10,6 +10,6 @@
 </div>
 <div class="form-group col-md-3">
     <label>Total:</label>
-    <input type="text" class="form-control" name="total" value='{{$llenar->precio}}' disabled>
+    <input type="text" class="form-control" name="total" id="total" value='{{$llenar->precio}}' disabled>
 </div>
 @endforeach

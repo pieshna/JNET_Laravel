@@ -17,6 +17,9 @@ Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('/clientes/menu', function () {
     return view('clientes.menu');
 })->middleware('auth');
+Route::get('/moroso', function () {
+    return view('moroso.index');
+});
 
 Auth::routes();
 Route::get('/verrecibo/{file}', function ($file) {
