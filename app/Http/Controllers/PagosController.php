@@ -136,7 +136,7 @@ class PagosController extends Controller
         order by id desc limit 1', [$nombre.'.pdf']);
         //return view('pagos.pdf',$data);
         //$this->guardarpdf($pdf,$nombre);
-        return $pdf->stream($nombre.'.pdf');
+        return $pdf->download($nombre.'.pdf');
     }
 
     public function guardarpdf($pdfi,$nombre){
