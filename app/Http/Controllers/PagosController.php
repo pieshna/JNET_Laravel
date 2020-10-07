@@ -119,6 +119,25 @@ class PagosController extends Controller
         INNER JOIN plan ON plan.id=clientes.plan AND clientes.id = ?', [$id]);
         return view('pagos.fill')->with('datosALlenar',$datosALlenar);
     }
+    public function pdfm()
+    {
+        $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes,plan.megas,plan.precio,pagos.total from pagos
+        inner join clientes on clientes.id=pagos.cliente
+        inner join plan on plan.id=pagos.plan
+        inner join mes on mes.id=pagos.mes ORDER by pagos.id DESC
+        LIMIT 1');
+        $fecha['fecha'] =[date('d/m/y'),date('dhmiys')];
+        $pdf=\PDF::loadView('pagos.pdfm',$data,$fecha);
+        $pdf->setPaper([0,0,1000,1500]);
+        $nombre=date("dhmiys");
+        
+        \Storage::put('public/pdf/'.$nombre.'.pdf', $pdf->output());
+        \DB::update('update mes set link = ?
+        order by id desc limit 1', [$nombre.'.pdf']);
+        //return view('pagos.pdf',$data);
+        //$this->guardarpdf($pdf,$nombre);
+        return $pdf->download($nombre.'.pdf');
+    }
     public function pdf()
     {
         $data['data']=\DB::select('select clientes.nombre,clientes.apellido, mes.mes,plan.megas,plan.precio,pagos.total from pagos

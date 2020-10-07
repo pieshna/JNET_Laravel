@@ -35,5 +35,6 @@ Route::get('/verificar',function(){
 Route::get('/verpagos', 'PagosController@verpagos')->middleware('auth');
 Route::get('/redireccionar', 'PagosController@redireccionar')->middleware('auth');
 Route::get('/pdf', 'PagosController@pdf')->middleware('auth');
+Route::get('/pdfm', 'PagosController@pdfm')->middleware('auth');
 Route::get('/pagos/fill/{pago}', 'PagosController@llenado')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
