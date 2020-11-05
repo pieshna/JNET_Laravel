@@ -14,6 +14,14 @@
         <label>Foto</label>
         <input type="file" class="form-control" name="picture" required>
     </div>
+    <div class="form-group col-md-6">
+        <label>Rol</label>
+        <select name="roluser" class="custom-select" id="rol" required>
+            @foreach($roles as $rol)
+            <option value="{{$rol->id}}">{{$rol->name}}</option>
+            @endforeach
+        </select>
+    </div>
 </div>
 @stop
 @section('cambiarPass')

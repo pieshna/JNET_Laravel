@@ -63,7 +63,8 @@ class UsuariosController extends Controller
     {
         //
         $buscarusuario=\DB::table('users')->find($id);
-        return view('usuarios.edit',compact('buscarusuario'));
+        $datos['roles']=\DB::select('select id,name from roles');
+        return view('usuarios.edit',compact('buscarusuario'),$datos);
     }
 
     /**

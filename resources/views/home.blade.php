@@ -1,7 +1,7 @@
 @include('template')
 
 @yield('header')
-    @yield('nav')
+@yield('nav')
     <div class="container jumbotron">
         <h3 class="display-4 text-center">JNET</h3>
       </div>
@@ -20,7 +20,7 @@
                         <div class="card-body"><h4 class="card-title">Planes</h4></div>
                     </a>
                 </div>
-          </div>
+            </div>
           <div class="col-md-4">
                 <div class="card text-white bg-success mb-3 largo-max">
                 <a class="btn text-white text-center" href="{{url('/pagos/create')}}">

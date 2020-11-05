@@ -41,22 +41,24 @@
                     <td>{{$cliente->megas}} Megas</td>
                     <td><a href="http://{{$cliente->direccion_ip}}:8080" target="_blank" class="txtnegro">{{$cliente->direccion_ip}}</a></td>
                     <td>
-                        <div class="row">
-                            <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-warning">Editar</a>
-
-                            <form method="post" action="{{url('/clientes/'.$cliente->id)}}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" onclick="return confirm('Borrar cliente?');"
-                                    class="btn btn-danger separar-boton">Borrar</button>
-                            </form>
-
+                      <div class="row">
+                        @if(Auth::user()->roluser=='1')
+                        <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-warning">Editar</a>
+                        
+                        <form method="post" action="{{url('/clientes/'.$cliente->id)}}">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" onclick="return confirm('Borrar cliente?');"
+                          class="btn btn-danger separar-boton">Borrar</button>
+                        </form>
+                        
+                        @endif
                         <a class="btn btn-info separar-boton" target="_blank"
-                            href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que se encuentra proximo a su fecha de pago ({{$cliente->fecha_fac}} del presente) con un saldo de: Q{{$cliente->precio}} correspondiente al consumo del mes&source=&data=">
-                            Recordatorio
-                        </a>
-                        <a class="btn btn-info separar-boton" target="_blank"
-                            href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que su fecha de pago ya expiro y cuenta con un saldo pendiente de Q{{$cliente->precio}} correspondiente al consumo del último mes, le recordamos que desde ya puede pasar a cancelar su pago, de lo contrario se le estaria aplicando una mora de Q25... Si usted ya cancelo por favor OMITIR este mensaje.&source=&data=">
+                        href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que se encuentra proximo a su fecha de pago ({{$cliente->fecha_fac}} del presente) con un saldo de: Q{{$cliente->precio}} correspondiente al consumo del mes&source=&data=">
+                        Recordatorio
+                      </a>
+                      <a class="btn btn-info separar-boton" target="_blank"
+                      href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que su fecha de pago ya expiro y cuenta con un saldo pendiente de Q{{$cliente->precio}} correspondiente al consumo del último mes, le recordamos que desde ya puede pasar a cancelar su pago, de lo contrario se le estaria aplicando una mora de Q25... Si usted ya cancelo por favor OMITIR este mensaje.&source=&data=">
                             Recordatorio atrasado
                         </a>
                         <a class="btn btn-info separar-boton" target="_blank"
@@ -74,7 +76,7 @@
             </tbody>
         </table>
         <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}">Inicio</a>
-        <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/clientes/create')}}">Nuevo</a>
+        <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/clientes/create')}}">Nuevo</a>     
         <br><br>
     </div>
     <script>

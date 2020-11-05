@@ -20,7 +20,9 @@
                     <th scope="col">ID</th>
                     <th scope="col">Megas</th>
                     <th scope="col">Precio</th>
+                    @if(Auth::user()->roluser=='1')
                     <th scope="col" class="max-accion-plan">Acciones</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -29,25 +31,29 @@
                     <td>{{$mega->id}}</td>
                     <td>{{$mega->megas}} Megas</td>
                     <td>Q.{{$mega->precio}}</td>
+                    @if(Auth::user()->roluser=='1')
                     <td class="max-accion-plan">
                         <div class="row">
                             <a href="{{url('/planes/'.$mega->id.'/edit')}}" class="btn btn-warning">Editar</a>
-
+                            
                             <form method="post" action="{{url('/planes/'.$mega->id)}}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Borrar Plan?');"
-                                    class="btn btn-danger separar-boton">Borrar</button>
+                                class="btn btn-danger separar-boton">Borrar</button>
                             </form>
-
+                            
                         </div>
                     </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>
         </table>
         <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}">Inicio</a>
+        @if(Auth::user()->roluser=='1')
         <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/planes/create')}}">Nuevo</a>
+        @endif
         <br><br>
     </div>
     @yield('footer')

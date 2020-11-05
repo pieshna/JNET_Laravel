@@ -20,8 +20,10 @@
                     <th scope="col">Foto</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
+                    @if(Auth::user()->roluser=='1')
                     <th scope="col">Contraseña</th>
                     <th scope="col">Acciones</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -30,26 +32,30 @@
                     <td><img src="{{asset('storage').'/'.$usuario->picture}}" alt="No hay" class="fotoIndex"></td>
                     <td>{{$usuario->name}}</td>
                     <td>{{$usuario->email}}</td>
+                    @if(Auth::user()->roluser=='1')
                     <td>{{$usuario->password}}</td>
                     <td>
                         <div class="row">
                             <a href="{{url('/usuarios/'.$usuario->id.'/edit')}}" class="btn btn-warning">Editar</a>
-
+                            
                             <form method="post" action="{{url('/usuarios/'.$usuario->id)}}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Borrar usuario?');"
-                                    class="btn btn-danger separar-boton">Borrar</button>
+                                class="btn btn-danger separar-boton">Borrar</button>
                             </form>
-
+                            
                         </div>
                     </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>
         </table>
         <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}">Inicio</a>
+        @if(Auth::user()->roluser=='1')
         <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/usuarios/create')}}">Nuevo</a>
+        @endif
         <br><br>
     </div>
     @yield('footer')
