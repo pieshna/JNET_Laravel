@@ -58,12 +58,15 @@ class PagosController extends Controller
             $obtenerPlanf[]=$m->pid;
             $datostotal[]=$m->precio;
         }
+        $current_date_time = \Carbon\Carbon::now()->toDateTimeString();
         
-        \DB::insert('insert into pagos (cliente, mes,plan,total) values (?, ?,?,?)', 
+        \DB::insert('insert into pagos (cliente, mes,plan,total,created_at,updated_at) values (?, ?,?,?,?,?)', 
         [$datosCliente, 
         $obtenerMesf[0],
         $obtenerPlanf[0],
-        $datostotal[0] ]);
+        $datostotal[0], 
+        $current_date_time,
+        $current_date_time]);
 //        $this->pdf();
         return redirect ('/home');
     }
