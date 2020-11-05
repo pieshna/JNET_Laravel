@@ -174,7 +174,7 @@ class PagosController extends Controller
 
 public function verpagos(){
         $data['data']=\DB::select('select * from clientes');
-        $pagocliente['pagocliente']=\DB::select('select * from mes where year=?',[date("yy")]);
+        $pagocliente['pagocliente']=\DB::select('select * from mes where year=? order by cliente,id asc',[date("yy")]);
         return view('pagos.vermes',$data,$pagocliente);
     }
 }

@@ -1,10 +1,9 @@
 @include('template')
 @yield('header')
-<body>
 <div class="container">
     <br>
     <br>
-    <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="container shadow-lg p-3 mb-5 rounded">
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="row">
@@ -68,7 +67,7 @@
                     <div class=" row justify-content-md-center">
 
                         <button type="submit" class="btn btn-primary">
-                            {{ __('Login') }}
+                            Iniciar Sesion
                         </button>
                     </div>
 

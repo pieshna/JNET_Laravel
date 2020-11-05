@@ -1,53 +1,51 @@
 @include('template')
 
 @yield('header')
-
-<body onLoad="setInterval('FyH()', 1000);" class='bg-info text-white'>
     @yield('nav')
-    <div class="container">
-        <br>
-        <div class="text-center">
-            <img src="/imagenes/logo.png" alt="Logo" height="150px">
-        </div>
-        <br>
-        <h5 id="fecha" class='text-center'></h5>
-        <h5 id="hora" class='text-center'></h5>
-        <br><br>
-        <div class="row">
-            <div class="col-md-6 text-center">
-                <a href="{{url('clientes/menu')}}"> <img src="/imagenes/client.png" alt=""> </a>
+    <div class="container jumbotron">
+        <h3 class="display-4 text-center">JNET</h3>
+      </div>
+      <div class="container text-center">
+          <div class="row mx-auto">
+              <div class="col-md-4">
+                  <div class="card text-white bg-primary mb-3 largo-max">
+                    <a class="btn text-white text-center" href="{{url('/clientes')}}"> 
+                        <div class="card-body"><h4 class="card-title">Clientes</h4></div>
+                    </a>
+                </div>
             </div>
-            <div class="col-md-6 text-center">
-                <a href="{{url('/pagos/create')}}"> <img src="/imagenes/pago.png" alt=""> </a>
+            <div class="col-md-4 text-center">
+                <div class="card text-white bg-info mb-3 largo-max">
+                    <a class="btn text-white text-center" href="{{url('/planes')}}">
+                        <div class="card-body"><h4 class="card-title">Planes</h4></div>
+                    </a>
+                </div>
+          </div>
+          <div class="col-md-4">
+                <div class="card text-white bg-success mb-3 largo-max">
+                <a class="btn text-white text-center" href="{{url('/pagos/create')}}">
+                    <div class="card-body"><h4 class="card-title">Pagos</h4></div>
+                </a>
+            </div>
+            </div>
+        </div>
+        <div class="row mx-auto col-max">
+            <div class="col-md-6">
+                <div class="card text-white bg-light mb-3 largo-max">
+                    <a class="btn text-white text-center" href="{{ url('/verpagos') }}">
+                        <div class="card-body">
+                        <h4 class="card-title">Meses</h4></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-white bg-warning mb-3 largo-max">
+                    <a class="btn text-white text-center" href="indexservice.html">
+                        <div class="card-body">
+                        <h4 class="card-title">Pedidos</h4></div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
     @yield('footer')
-    <script>
-    function FyH() {
-        var d = new Date();
-        var hora = d.getHours(),
-            minuto = d.getMinutes(),
-            segundos = d.getSeconds(),
-            dia = d.getDate(),
-            mes = (d.getMonth() + 1),
-            anio = d.getFullYear();
-        if (hora < 10) {
-            hora = "0" + hora;
-        }
-        if (minuto < 10) {
-            minuto = "0" + minuto
-        }
-        if (segundos < 10) {
-            segundos = "0" + segundos;
-        }
-        if (dia < 10) {
-            dia = "0" + dia;
-        }
-        if (mes < 10) {
-            mes = "0" + mes;
-        }
-        document.getElementById("fecha").innerHTML = dia + "/" + mes + "/" + anio;
-        document.getElementById("hora").innerHTML = hora + ":" + minuto + ":" + segundos;
-    }
-    </script>

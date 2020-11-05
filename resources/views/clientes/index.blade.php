@@ -1,19 +1,20 @@
 @include('template')
 @yield('header')
-
-<body>
-    @yield('nav')
+@yield('nav')
+<div class="container-fluid ajustar jumbotron bg-info">
+    <h3 class="display-5">Cartera de Clientes</h3>
+    <p class="lead text-white">Informacion correspondiente de los clientes.</p>
+    <hr class="my-4">
+</div>
+@if(Session::has('Mensaje'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{Session::get('Mensaje')}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  @endif
     <div class="container-fluid table-responsive">
-        <h1 class='text-center'>CLIENTES </h1>
-        <hr>
-        @if(Session::has('Mensaje'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>{{Session::get('Mensaje')}}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @endif
         <table class="table table-hover" id='grid'>
             <thead>
                 <tr class='bg-info'>

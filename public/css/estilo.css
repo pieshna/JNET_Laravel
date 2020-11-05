@@ -4,9 +4,50 @@
 .txtnegro{
     color: black;
 }
+.max-accion-plan{
+    width: 10rem;
+}
+.txtBlanco{
+    color:white;
+}
+/*Nav*/
 .fotoIndex{
     width: 10rem;
 }
-.max-accion-plan{
-    width: 10rem;
+.mover-img{
+    margin-left: 2rem;
+    margin-right: 0rem;
+}
+.margen-derecho{
+    margin-right: 8rem;
+}
+.dropdown-menu{
+   
+    border-radius: 0.5rem;
+}
+
+/*Body*/
+body{
+    background-color:#2b3e50;
+}
+.largo-max{
+    max-width: 20rem;
+}
+.col-max{
+    width: 43.75rem;
+}
+
+/*Botones*/
+.btn{
+    border-radius: 0.25rem;
+}
+
+/*Ajustamos Margen al container*/
+.ajustar{
+    width: calc(100% - 4rem);
+    height: 12rem;
+}
+/*Picture Profile*/
+.redondear{
+    border-radius: 1rem;
 }

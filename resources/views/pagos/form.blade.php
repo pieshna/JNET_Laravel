@@ -38,7 +38,6 @@
         <label for="instalacion" id="txtinstalacion">Instalacion</label>
     </div>
 </div>
-<br>
 <div class="form-row" id='cargar'>
     <div class="form-group col-md-6">
         <label>Facturacion</label>

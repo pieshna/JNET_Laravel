@@ -3,7 +3,7 @@
 <body>
 @yield('nav')
 <div class="container-fluid table-responsive">
-        <h1 class='text-center'>CLIENTES: </h1>
+        <h1 class='text-center'>PAGOS: </h1>
         <hr>
         @if(Session::has('Mensaje'))
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -19,6 +19,17 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Mes</th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
                 </tr>
             </thead>
             <tbody>

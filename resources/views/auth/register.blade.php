@@ -1,6 +1,5 @@
 @include('template')
 @yield('header')
-<body>
 @yield('nav')
 
 <div class="container">

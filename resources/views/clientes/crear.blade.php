@@ -1,14 +1,11 @@
 @include('template')
 @yield('header')
-
-<body>
-    @yield('nav')
-
-    <div class="container-fluid">
-        <div class="jumbotron jumbotron-fluid bg-primary text-white">
-            <h1 style="font-size: 60px;" class="text-center">Nuevo Cliente</h1>
-            <hr>
-        </div>
+@yield('nav')
+<br>
+<div class="container jumbotron bg-info">
+    <h3 class="display-5">Ingresar Nuevo Cliente</h3>
+</div>
+    <div class="container">
         <form action="{{url('/clientes')}}" method="post">
             <br>
             @csrf

@@ -1,17 +1,13 @@
 @include('template')
 @yield('header')
-
-<body>
-    @yield('nav')
+@yield('nav')
 
     <div class="container">
-        <br>
-        <br>
-        <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container jumbotron bg-info">
+            <h3 class="display-5 text-center">Pagos</h3>
+          </div>
+        <div class="container">
             <form action="{{url('/pagos')}}" method="post">
-            <h2 class='text-center'>PAGOS</h2>
-            <hr>
-                <br>
                 @csrf
                 @include('pagos.form')
                 @yield('form')

@@ -6,7 +6,7 @@
     @yield('nav')
     <div class="container">
         <br>
-        <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container shadow-lg p-3 mb-5 rounded">
             <form action="{{url('/planes/'.$buscarplan->id)}}" method="post">
                 <div class="row center">
                     <div class=" col-sm-6">
