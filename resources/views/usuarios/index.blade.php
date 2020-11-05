@@ -21,6 +21,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
                     @if(Auth::user()->roluser=='1')
+                    <th scope="col">Rol</th>
                     <th scope="col">Contraseña</th>
                     <th scope="col">Acciones</th>
                     @endif
@@ -33,6 +34,16 @@
                     <td>{{$usuario->name}}</td>
                     <td>{{$usuario->email}}</td>
                     @if(Auth::user()->roluser=='1')
+                    @if(empty($usuario->roluser))
+                    <td class="text-danger">No Tiene Rol</td>
+                    @else
+                    @foreach($roles as $rol)
+                    @if($usuario->roluser===$rol->id)
+                    <td>{{$rol->name}}</td>
+                    @endif
+                    
+                    @endforeach
+                    @endif
                     <td>{{$usuario->password}}</td>
                     <td>
                         <div class="row">

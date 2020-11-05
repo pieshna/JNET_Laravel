@@ -16,8 +16,9 @@ class UsuariosController extends Controller
     public function index()
     {
         //
-        $datos['usuarios']=\DB::select('select id,picture,name,email,password from users');
-        return view('usuarios.index',$datos);
+        $datos['usuarios']=\DB::select('select id,picture,name,email,password,roluser from users');
+        $roles['roles']=\DB::select('select id,name from roles');
+        return view('usuarios.index',$datos,$roles);
     }
 
     /**

@@ -18,7 +18,11 @@
         <label>Rol</label>
         <select name="roluser" class="custom-select" id="rol" required>
             @foreach($roles as $rol)
+            @if($rol->id===$buscarusuario->roluser)
+            <option value="{{$rol->id}}" selected>{{$rol->name}}</option>
+            @else
             <option value="{{$rol->id}}">{{$rol->name}}</option>
+            @endif
             @endforeach
         </select>
     </div>
