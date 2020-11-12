@@ -60,22 +60,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/pagos/create')}}">Pagos</a>
                     </li>
-
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropMenuHerramientas" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Herramientas
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropMenuHerramientas">
-                            <a class="dropdown-item" href="{{ url('/usuarios') }}">Usuarios</a>
-                            <a class="dropdown-item" href="{{ url('/planes') }}">Planes de Internet</a>
-                            <a class="dropdown-item" href="{{ url('/pdf') }}">Generar Recibo</a>
-                            <a class="dropdown-item" href="{{ url('/pdfm') }}">Recibo con mora</a>
-                            <a class="dropdown-item" href="{{ url('/redireccionar') }}" target="_blank">Enviar recibo</a>
-                            <a class="dropdown-item" href="{{ url('/verpagos') }}"> Ver todos los pagos</a>
-                        </div>
-                    </li>
-                </ul>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Herramientas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropMenuHerramientas">
+                        <a class="dropdown-item" href="{{ url('/usuarios') }}">Usuarios</a>
+                        <a class="dropdown-item" href="{{ url('/planes') }}">Planes de Internet</a>
+                        <a class="dropdown-item" href="{{ url('/pdf') }}">Generar Recibo</a>
+                        <a class="dropdown-item" href="{{ url('/pdfm') }}">Recibo con mora</a>
+                        <a class="dropdown-item" href="{{ url('/redireccionar') }}" target="_blank">Enviar recibo</a>
+                        <a class="dropdown-item" href="{{ url('/verpagos') }}"> Ver todos los pagos</a>
+                    </div>
+                </li>
+            </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto margen-derecho">

@@ -14,7 +14,11 @@
       </button>
   </div>
   @endif
-    <div class="container-fluid table-responsive">
+  
+  <div class="container-fluid table-responsive">
+    <a class="btn btn-primary btn-lg col-xs-2" href="{{url('/clientes/create')}}">Nuevo</a>   
+    <br>
+    <br>
         <table class="table table-hover" id='grid'>
             <thead>
                 <tr class='bg-info'>
@@ -75,8 +79,7 @@
                 @endforeach
             </tbody>
         </table>
-        <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}">Inicio</a>
-        <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/clientes/create')}}">Nuevo</a>     
+        <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}">Inicio</a>  
         <br><br>
     </div>
     <script>

@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->middleware('auth');
-Route::get('/clientes/menu', function () {
-    return view('clientes.menu');
-})->middleware('auth');
 Route::get('/moroso', function () {
     return view('moroso.index');
 });
@@ -31,7 +28,7 @@ Route::resource('planes', 'PlanesController')->middleware('auth');
 Route::resource('pagos', 'PagosController')->middleware('auth');
 Route::get('/verificar',function(){
     return view('auth.verify');
-});
+})->middleware('auth');
 Route::get('/verpagos', 'PagosController@verpagos')->middleware('auth');
 Route::get('/redireccionar', 'PagosController@redireccionar')->middleware('auth');
 Route::get('/pdf', 'PagosController@pdf')->middleware('auth');
