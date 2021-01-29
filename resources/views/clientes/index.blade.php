@@ -16,7 +16,9 @@
   @endif
   
   <div class="container-fluid table-responsive">
-    <a class="btn btn-primary btn-lg col-xs-2" href="{{url('/clientes/create')}}">Nuevo</a>   
+    <a class="btn btn-primary btn-lg col-xs-2" href="{{url('/clientes/create')}}"><span class="material-icons">
+      add_circle_outline
+      </span></a>   
     <br>
     <br>
         <table class="table table-hover" id='grid'>
@@ -47,31 +49,43 @@
                     <td>
                       <div class="row">
                         @if(Auth::user()->roluser=='1')
-                        <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-warning">Editar</a>
+                        <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-warning"><span class="material-icons">
+                          create
+                          </span></a>
                         
                         <form method="post" action="{{url('/clientes/'.$cliente->id)}}">
                           @csrf
                           @method('DELETE')
                           <button type="submit" onclick="return confirm('Borrar cliente?');"
-                          class="btn btn-danger separar-boton">Borrar</button>
+                          class="btn btn-danger separar-boton"><span class="material-icons">
+                            delete
+                            </span></button>
                         </form>
                         
                         @endif
                         <a class="btn btn-info separar-boton" target="_blank"
                         href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que se encuentra proximo a su fecha de pago ({{$cliente->fecha_fac}} del presente) con un saldo de: Q{{$cliente->precio}} correspondiente al consumo del mes&source=&data=">
-                        Recordatorio
+                        <span class="material-icons">
+                          email
+                          </span>
                       </a>
                       <a class="btn btn-info separar-boton" target="_blank"
                       href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que su fecha de pago ya expiro y cuenta con un saldo pendiente de Q{{$cliente->precio}} correspondiente al consumo del último mes, le recordamos que desde ya puede pasar a cancelar su pago, de lo contrario se le estaria aplicando una mora de Q25... Si usted ya cancelo por favor OMITIR este mensaje.&source=&data=">
-                            Recordatorio atrasado
+                      <span class="material-icons">
+                        forward_to_inbox
+                        </span>
                         </a>
-                        <a class="btn btn-info separar-boton" target="_blank"
+                        <a class="btn btn-danger separar-boton" target="_blank"
                             href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le recordamos que debido a la falta de pago el servicio ha sido suspendido, para poder seguir disfrutando de nuestro servicio le comentamos que desde ya puede pasar a cancelar&source=&data=">
-                            Corte
+                            <span class="material-icons">
+                              content_cut
+                              </span>
                         </a>
                         <a class="btn btn-info separar-boton" target="_blank"
                             href="https://api.whatsapp.com/send?phone=502{{$cliente->telefono}}&text=Estimado usuario de Jnet por el siguiente medio le notificamos que el dia de hoy se estara haciendo mantenimiento de ultima hora de 2:30 a 5:00 de la tarde, motivo por el cual el servicio podria presentar irregularidades en el transcurso del mantenimiento... Desde ya agradecemos su comprension, que tenga lindo dia!&source=&data=">
-                            Mantenimiento
+                            <span class="material-icons">
+                              perm_data_setting
+                              </span>
                         </a>
                         </div>
                     </td>
@@ -79,7 +93,9 @@
                 @endforeach
             </tbody>
         </table>
-        <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}">Inicio</a>  
+        <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}"><span class="material-icons">
+          arrow_back
+          </span></a>  
         <br><br>
     </div>
     <script>

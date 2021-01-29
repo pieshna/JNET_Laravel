@@ -34,13 +34,17 @@
                     @if(Auth::user()->roluser=='1')
                     <td class="max-accion-plan">
                         <div class="row">
-                            <a href="{{url('/planes/'.$mega->id.'/edit')}}" class="btn btn-warning">Editar</a>
+                            <a href="{{url('/planes/'.$mega->id.'/edit')}}" class="btn btn-warning"><span class="material-icons">
+                                create
+                                </span></a>
                             
                             <form method="post" action="{{url('/planes/'.$mega->id)}}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Borrar Plan?');"
-                                class="btn btn-danger separar-boton">Borrar</button>
+                                class="btn btn-danger separar-boton"><span class="material-icons">
+                                    delete
+                                    </span></button>
                             </form>
                             
                         </div>
@@ -50,9 +54,13 @@
                 @endforeach
             </tbody>
         </table>
-        <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}">Inicio</a>
+        <a class="btn btn-danger btn-lg col-xs-2" href="{{url('/home')}}"><span class="material-icons">
+            arrow_back
+            </span></a>
         @if(Auth::user()->roluser=='1')
-        <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/planes/create')}}">Nuevo</a>
+        <a class="btn btn-primary btn-lg col-xs-2 offset-8 float-right" href="{{url('/planes/create')}}"><span class="material-icons">
+            add_circle_outline
+            </span></a>
         @endif
         <br><br>
     </div>
