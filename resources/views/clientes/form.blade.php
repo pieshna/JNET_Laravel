@@ -30,7 +30,7 @@
     </div>
 </div>
 <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
         <label>Plan</label>
         <select name="plan" class="custom-select" id="plan">
             @foreach($buscarplan as $mega)
@@ -56,6 +56,11 @@
         <label>Creado Por</label>
         <input type="text" class="form-control" name="usuario" placeholder="Ingrese el usuario"
             value="{{isset($buscarcliente->usuario)?$buscarcliente->usuario: Auth::user()->name }}" required>
+    </div>
+    <div class="form-group col-md-3">
+        <label>Fecha de creacion</label>
+        <input type="date" class="form-control" name="fecha_creacion" placeholder="Ingrese la fecha"
+            value="{{isset($buscarcliente->fecha_creacion)?$buscarcliente->fecha_creacion: ''}}" required>
     </div>
 </div>
 @stop
