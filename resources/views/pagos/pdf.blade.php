@@ -53,10 +53,10 @@
             <tbody>
                 <tr>
                     <td>
-                        <p>{{$datos->megas}}</p>
+                        <p>-</p>
                     </td>
-                    <td><p class="izquierda">Megas de internet por el mes de {{$datos->mes}}</p></td>
-                    <td><p>Q.{{$datos->total}}</p></td>
+                    <td><p class="izquierda">Instalacion del servicio</p></td>
+                    <td><p>Q.50</p></td>
                 </tr>
             </tbody>
         </table>

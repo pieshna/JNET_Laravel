@@ -72,7 +72,7 @@
                         <a class="dropdown-item" href="{{ url('/usuarios') }}">Usuarios</a>
                         <a class="dropdown-item" href="{{ url('/planes') }}">Planes de Internet</a>
                         <a class="dropdown-item" href="{{ url('/pdf') }}">Generar Recibo</a>
-                        <a class="dropdown-item" href="{{ url('/pdfm') }}">Recibo con mora</a>
+                        <a class="dropdown-item" href="{{ url('/pdfm') }}">Recibo de instalacion</a>
                         <a class="dropdown-item" href="{{ url('/redireccionar') }}" target="_blank">Enviar recibo</a>
                         <a class="dropdown-item" href="{{ url('/verpagos') }}"> Ver todos los pagos</a>
                     </div>
