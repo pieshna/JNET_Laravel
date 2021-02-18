@@ -55,8 +55,8 @@
                     <td>
                         <p>{{$datos->megas}}</p>
                     </td>
-                    <td><p class="izquierda">Megas de internet por el mes de {{$datos->mes}} + Mora</p></td>
-                    <td><p>Q.{{$datos->total+25}}</p></td>
+                    <td><p class="izquierda">Instalacion del servicio</p></td>
+                    <td><p>Q.50</p></td>
                 </tr>
             </tbody>
         </table>
